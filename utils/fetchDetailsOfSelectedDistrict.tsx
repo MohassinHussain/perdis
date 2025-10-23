@@ -20,7 +20,7 @@
       const allData = await Promise.all(
         finYears.map(async (finYear) => {
           const params = new URLSearchParams({
-            "api-key": apiKey,
+            "api-key": apiKey ?? "",
             format: "json",
             limit: "500",
             offset: "0",

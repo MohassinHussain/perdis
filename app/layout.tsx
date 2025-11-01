@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "perdis",
-  description: "Performance of Districts after MGNEA",
+  description: "Performance of Districts after MGNREGA",
 };
 
 export default function RootLayout({

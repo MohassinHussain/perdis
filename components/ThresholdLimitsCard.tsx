@@ -262,8 +262,8 @@ const ThresholdLimitsCard: React.FC<ThresholdLimitsCardProps> = ({ data }) => {
   if (!data) return null;
 
   return (
-    <div className="bg-white rounded-xl shadow p-4">
-      <h3 className="text-lg font-semibold text-green-700 mb-3 text-center">
+    <div className="bg-gray-700 rounded-xl shadow p-4 mb-10">
+      <h3 className="text-lg font-semibold text-green-200 mb-3 text-center">
         Threshold Performance Check
       </h3>
 
@@ -280,15 +280,15 @@ const ThresholdLimitsCard: React.FC<ThresholdLimitsCardProps> = ({ data }) => {
             <div
               key={metric.key}
               className={`flex flex-col border-b py-2 px-2 rounded ${
-                isGood ? "bg-green-100" : "bg-red-100"
+                isGood ? "bg-green-200" : "bg-red-200"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
-                  <span className="font-semibold text-gray-700">{metric.label}</span>
+                  <span className="font-semibold text-gray-800">{metric.label}</span>
                   <button
                     onClick={() => toggleTip(metric.key)}
-                    className="text-sm text-blue-500 font-bold px-1 rounded hover:bg-blue-100"
+                    className="text-lg text-blue-800 font-bold px-3 rounded hover:bg-blue-100"
                   >
                     i
                   </button>
@@ -299,7 +299,7 @@ const ThresholdLimitsCard: React.FC<ThresholdLimitsCardProps> = ({ data }) => {
               </div>
 
               {visibleTips[metric.key] && (
-                <p className="mt-1 text-xs text-gray-700 bg-gray-100 p-2 rounded">
+                <p className="mt-1 text-sm text-gray-700 bg-gray-200 p-2 rounded">
                   {metric.improvement}
                 </p>
               )}

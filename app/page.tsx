@@ -132,25 +132,25 @@ export default function HomePage() {
   }, [selectedState, selectedDistrict, selectedFinYear]);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-900 p-6">
       {/* <h1 className="text-3xl font-bold text-center text-green-700 mb-6">
         MGNREGA Dashboard
       </h1>
  */}
 
-      <div className="bg-white shadow-md rounded-xl p-4 mb-6">
-        <h2 className="text-xl font-semibold text-gray-800">
+      <div className="bg-gray-700 shadow-md rounded-xl p-4 mb-6">
+        <h2 className="text-xl font-semibold text-gray-300">
           📍 Your Location
         </h2>
-        <p className="text-gray-600 mt-2">
-          State: <span className="font-semibold">{userLocation.state}</span> | District:{" "}
-          <span className="font-semibold">{userLocation.district}</span>
+        <p className="text-gray-300 mt-2">
+          State: <span className="font-semibold text-gray-300">{userLocation.state}</span> | District:{" "}
+          <span className="font-semibold text-gray-300">{userLocation.district}</span>
         </p>
       </div>
 
 
       {!userDataAvailable && !loading && (
-        <p className="text-center text-red-600 mb-4">
+        <p className="text-center text-orange-400 mb-4">
           Your district "{userLocation.district}" is not listed in the selected state. Please choose from the dropdowns below.
         </p>
       )}
@@ -159,13 +159,13 @@ export default function HomePage() {
 
 
       {/* Dropdowns */}
-      <div className="bg-white p-4 rounded-xl shadow mb-6 flex flex-col md:flex-row gap-4 items-center justify-center">
+      <div className="bg-gray-700 p-4 rounded-xl shadow mb-6 flex flex-col md:flex-row gap-4 items-center justify-center">
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">State</label>
+          <label className="block text-gray-300 font-semibold mb-1">State</label>
           <select
             value={selectedState}
             onChange={(e) => setSelectedState(e.target.value)}
-            className="border p-2 rounded w-60 text-black"
+            className="border p-2 rounded w-60 text-white bg-gray-800"
           >
             <option value="">Select State</option>
             {STATES.map((state) => (
@@ -175,12 +175,12 @@ export default function HomePage() {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-semibold mb-1">District</label>
+          <label className="block text-gray-300 font-semibold mb-1">District</label>
           <select
             value={selectedDistrict}
             onChange={(e) => setSelectedDistrict(e.target.value)}
             disabled={!districts.length}
-            className="border p-2 rounded w-60 text-black"
+            className="border p-2 rounded w-60 text-white bg-gray-800"
           >
             <option value="">Select District</option>
             {districts.map((dist) => (
@@ -204,15 +204,15 @@ export default function HomePage() {
         </div> */}
       </div>
 
-      {loading && <p className="text-center text-gray-600 mb-4">Loading data...</p>}
-
+      {loading && <p className="text-center text-gray-300 mb-4">Loading data...</p>}
+<h1 className="text-gray-200 font-bold text-center">
+        Showing results for District {selectedDistrict}
+      </h1>
       <div className="grid md:grid-cols-1 gap-4 mt-6">
         {districtData.length > 0 && <ThresholdLimitsCard data={districtData[0]} />}
       </div>
 
-      <h1 className="text-black font-bold text-center">
-        Showing results for District {selectedDistrict}
-      </h1>
+      
       {districtData.length > 0 && (
         <>
           {/* Latest Year Key Metrics */}
